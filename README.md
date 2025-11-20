@@ -1,50 +1,58 @@
-# Welcome to your Expo app 👋
+# MiAppFigma
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Proyecto Expo + React Native (TypeScript) generado a partir de diseños en Figma. El proyecto incluye código exportado desde Figma (mediante un plugin de exportación a React Native) y adaptado para Expo + expo-router.
 
-## Get started
+## Resumen
+Este repositorio combina la app Expo con los componentes y pantallas que extrajiste desde Figma. Los archivos exportados de diseño están en la carpeta `app/figma`.
 
-1. Install dependencies
+## Requisitos previos
+- Node.js >=16
+- npm 
+- Expo CLI (opcional): `npm install -g expo-cli` o usar `npx expo`
 
-   ```bash
+## Instalación
+1. Clonar/abrir el proyecto en tu máquina.
+2. Instalar dependencias:
+   ```sh
    npm install
+   # o
+   yarn
    ```
-
-2. Start the app
-
-   ```bash
+3. Iniciar el servidor de desarrollo:
+   ```sh
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+## Comandos comunes
+- Iniciar desarrollo (Metro / Expo): `npx expo start`
+- Abrir en Android (emulador/dispositivo): `npm run android`
+- Abrir en iOS (simulador, macOS): `npm run ios`
+- Abrir en web: `npm run web`
+- Lint: `npm run lint`
+- Reset del proyecto (si existe): `npm run reset-project`
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+(Estos scripts dependen de lo configurado en `package.json`.)
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Flujo para actualizar desde Figma
+1. En Figma, abre el archivo de diseño y usa el plugin de exportación a React Native que utilizaste originalmente (p. ej. un plugin de "Figma to React Native" o "Figma export").
+2. Exporta o copia los componentes/pantallas como código.
+3. Reemplaza/mezcla los archivos exportados en:
+   - `app/figma/` — pantallas y vistas específicas generadas desde Figma.
+   - `components/` — componentes reutilizables exportados.
+   - `assets/` — imágenes y recursos exportados desde Figma.
+4. Ajusta imports y estilos TypeScript si el plugin generó código JS plano.
+5. Ejecuta `npx expo start` y prueba en los targets (Android/iOS/Web).
 
-## Get a fresh project
 
-When you're ready, run:
+Consejo: mantén un directorio claro para lo que proviene directamente del exportador (ej. `app/figma`) para poder localizar y sobrescribir cambios de diseño sin perder código manual escrito.
 
-```bash
-npm run reset-project
-```
+## Estructura relevante
+- app/ — rutas y pantallas; `app/figma/` contiene las vistas importadas desde Figma.
+- components/ — componentes reutilizables y adaptaciones del código exportado.
+- assets/ — imágenes y recursos (reemplazar con las exportaciones de Figma).
+- hooks/, constants/, scripts/ — utilidades y configuración del proyecto.
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Notas importantes
+- El código exportado desde Figma suele necesitar revisión y limpieza manual (nombres de clases, optimización de estilos, uso de assets).
+- TypeScript está habilitado; revisa `tsconfig.json` si el exportador generó JS.
+- Se recomienda probar cada pantalla en dispositivo real y en modo web, ya que el comportamiento de layout puede variar.

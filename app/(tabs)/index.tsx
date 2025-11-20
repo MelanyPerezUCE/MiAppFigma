@@ -1,5 +1,5 @@
 import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { Platform, StyleSheet, Text } from 'react-native';
 
 import { HelloWave } from '@/components/hello-wave';
 import ParallaxScrollView from '@/components/parallax-scroll-view';
@@ -74,6 +74,23 @@ export default function HomeScreen() {
           <ThemedText type="defaultSemiBold">app-example</ThemedText>.
         </ThemedText>
       </ThemedView>
+            <ThemedView style={styles.stepContainer}>
+        <ThemedText type="subtitle">Step 4: Ver pantalla de Figma</ThemedText>
+
+        <Link
+          href="/figma"
+          style={{
+            marginTop: 10,
+            backgroundColor: "#0088FF",
+            padding: 12,
+            borderRadius: 10,
+            alignSelf: "flex-start"
+          }}
+        >
+          <Text style={{ color: "white", fontSize: 16 }}>Abrir Pantalla Figma</Text>
+        </Link>
+      </ThemedView>
+
     </ParallaxScrollView>
   );
 }
